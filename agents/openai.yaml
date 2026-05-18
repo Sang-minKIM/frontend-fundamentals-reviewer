@@ -1,0 +1,7 @@
+interface:
+  display_name: "Frontend Fundamentals Reviewer"
+  short_description: "Four-agent frontend quality scoring review"
+  default_prompt: "Use $frontend-fundamentals-reviewer to review this MR with four Toss Frontend Fundamentals scoring agents."
+
+policy:
+  allow_implicit_invocation: false
