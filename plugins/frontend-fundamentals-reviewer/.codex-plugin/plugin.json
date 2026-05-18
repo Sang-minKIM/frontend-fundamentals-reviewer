@@ -1,0 +1,33 @@
+{
+  "name": "frontend-fundamentals-reviewer",
+  "version": "0.1.0",
+  "description": "Four-agent frontend quality scoring review based on Toss Frontend Fundamentals.",
+  "author": {
+    "name": "Review Agent Contributors"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "frontend",
+    "code-review",
+    "toss-frontend-fundamentals",
+    "quality"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Frontend Fundamentals Reviewer",
+    "shortDescription": "Four-agent frontend quality scoring review",
+    "longDescription": "Runs four read-only review agents for readability, predictability, cohesion, and coupling, then synthesizes Toss Frontend Fundamentals scores with evidence and tradeoff guidance.",
+    "developerName": "Review Agent Contributors",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "defaultPrompt": [
+      "Use $frontend-fundamentals-reviewer to review this MR.",
+      "Run the frontend fundamentals reviewer on my local changes.",
+      "Score this PR with the Toss Frontend Fundamentals rubric."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
