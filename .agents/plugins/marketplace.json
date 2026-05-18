@@ -1,0 +1,20 @@
+{
+  "name": "frontend-fundamentals-reviewer-marketplace",
+  "interface": {
+    "displayName": "Frontend Fundamentals Reviewer"
+  },
+  "plugins": [
+    {
+      "name": "frontend-fundamentals-reviewer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/frontend-fundamentals-reviewer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
