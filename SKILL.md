@@ -1,6 +1,6 @@
 ---
 name: frontend-fundamentals-reviewer
-description: "Explicit-invocation-only frontend code review skill for PR, MR, diff, branch, commit, or local-change review. Use only when the user explicitly invokes $frontend-fundamentals-reviewer or asks to run the frontend fundamentals reviewer. Runs four read-only review subagents for Toss Frontend Fundamentals criteria: readability, predictability, cohesion, and coupling. Each detailed rule is scored out of 100, each criterion is the equal-weight average of its rules, and the main thread synthesizes conflicts, recommendations, and user choice points. Frontend-only; do not use implicitly for general coding or non-review tasks."
+description: "Explicit-invocation-only frontend code review skill for PR, MR, diff, branch, commit, or local-change review. Use only when the user explicitly invokes $frontend-fundamentals-reviewer, names this skill, or asks to run the frontend fundamentals reviewer. Runs four read-only review subagents for Toss Frontend Fundamentals criteria: readability, predictability, cohesion, and coupling. Each detailed rule is scored out of 100, each criterion is the equal-weight average of its rules, and the main thread synthesizes conflicts, recommendations, and user choice points. Frontend-only; do not use implicitly for general coding or non-review tasks."
 ---
 
 # Frontend Review Agents
@@ -130,13 +130,40 @@ For each conflict, present:
 
 Respond in the user's language. For Korean requests, write the review in Korean.
 
-Use this order:
+Always use this visible structure for the final synthesized review. Do not replace it with a shorter `Findings`/`Notes`-only format.
 
-1. Overall score and one-sentence verdict
-2. Scorecard table with four criterion scores and rule-level lows
-3. Top findings ordered by severity and merge risk
-4. Criterion summaries from the four agents
-5. Tradeoffs and recommended choices
-6. Suggested next steps
+```markdown
+**Overall**
+총점: <overall-score>/100. <one-sentence verdict>
+
+| 기준 | 점수 | 개선 필요 항목 |
+| --- | ---: | --- |
+| Readability | <score> | <items or `없음`> |
+| Predictability | <score> | <items or `없음`> |
+| Cohesion | <score> | <items or `없음`> |
+| Coupling | <score> | <items or `없음`> |
+
+**Top Findings**
+1. [P0-P3] <finding title>
+   - <evidence and impact>
+   - <suggested direction>
+
+**Criterion Summaries**
+Readability는 ...
+Predictability는 ...
+Cohesion은 ...
+Coupling은 ...
+
+**Tradeoffs**
+<Only include when there is a real tradeoff.>
+
+**Verification**
+<Commands/checks run and outcomes. Include skipped checks with the reason.>
+
+**Suggested Next Steps**
+<Only include actionable next steps when useful.>
+```
+
+For Korean scorecards, label the improvement-needed column exactly as `개선 필요 항목`. Populate it with the lowest-scoring applicable rules or concrete review points that most affected each criterion score, and avoid ambiguous labels that imply low rule importance.
 
 Keep the review direct and evidence-heavy. Do not provide large rewritten code blocks unless the user asks for fixes.
